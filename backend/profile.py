@@ -9,5 +9,18 @@ class Profile:
 
 
 def create_profile(profile):
-    new_profile = Profile(profile)
-    
+    try:
+        new_profile = Profile(profile)
+        db.profile.insert_one(new_profile.__dict__)
+        return{
+            "message":"Profile created",
+            "result": True
+        }
+    except:
+        return{
+            "message":"Username already exist",
+            "result":False
+        }
+
+
+

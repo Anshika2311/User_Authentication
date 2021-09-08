@@ -3,11 +3,15 @@
     "validator": {
       "$jsonSchema": {
         "bsonType": "object",
-        "required": ["user_id","username", "email","password","type"],
+        "required": ["username", "email","password","firstname","lastname"],
         "properties": {
           "email": {
             "bsonType": "string",
             "description": "Correo Electrónico"
+          },
+          "username": {
+            "bsonType": "string",
+            "description": "Una representación Hash de la contraseña"
           },
           "password": {
             "bsonType": "string",
