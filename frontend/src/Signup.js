@@ -9,6 +9,7 @@ function Signup(){
     const[email,setemail] = useState('')
     const[username,setusername] = useState('')
     const[password,setpassword] = useState('')
+    const[signed,setsigned] = useState(false)
 
     const user_info = {
         profile:{
@@ -25,12 +26,19 @@ function Signup(){
         axios.post('/api/signup',user_info)
             .then((response) =>{
                 console.log(response);
+                if(response.data.result==true){
+                    setsigned(true);
+                    alert("Signup Successfull")
+                }
             }).catch((error)=>{
                 console.log(error);
             })
         }
 
     return <div>
+        {
+         (signed==true)?
+         <h1>Signup Successfull!!!!!</h1>:
           <form>
                 <h3>Register</h3>
 
@@ -64,6 +72,7 @@ function Signup(){
                     Already registered <a href="#">log in?</a>
                 </p>
             </form>
+    }
     </div>
 }
 
