@@ -1,5 +1,6 @@
 import json
 from models import mydatabase
+import bcrypt
 
 class Profile:
     def __init__(self,profile):
@@ -22,3 +23,22 @@ def create_profile(profile):
             "message":"Profile already exist",
             "result":False
         }
+
+def login_system(profile):
+    try:
+        login_details = mydatabase.profiles.find_one({"username":profile["username"]})
+        if login_details["password"] == profile["password"]:
+            return{
+                "message":"login successfull",
+                "result":True
+            } 
+        else:
+            return{
+                "result":False
+            } 
+    except:
+        return{
+            "message":"user doesn't exist",
+            "result":False
+        } 
+

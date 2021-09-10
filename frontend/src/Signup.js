@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import './Signup.css'
 import axios from 'axios'
 
 function Signup(){
@@ -69,7 +68,7 @@ function Signup(){
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block" type="submit" onClick={submit_form}>Register</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#">log in?</a>
+                    Already registered <a href="./login">log in?</a>
                 </p>
             </form>
     }
