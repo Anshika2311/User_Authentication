@@ -3,6 +3,11 @@ import axios from 'axios'
 
 function Signup(){
 
+    function logout(event) {
+        event.preventDefault();
+       window.location = 'http://localhost:5000/';
+      }
+
     const[firstname,setfirstname] = useState('')
     const[lastname,setlastname] = useState('')
     const[email,setemail] = useState('')
@@ -37,7 +42,10 @@ function Signup(){
     return <div>
         {
          (signed==true)?
-         <h1>Signup Successfull!!!!!</h1>:
+         <div>
+            <h1>Signup Successfull!!!!!</h1>
+            <button onClick={logout}>LogOut</button>
+         </div>:
           <form>
                 <h3>Register</h3>
 

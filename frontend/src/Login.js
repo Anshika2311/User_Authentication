@@ -3,6 +3,11 @@ import axios from 'axios'
 
 function Login(){
 
+    function logout(event) {
+        event.preventDefault();
+       window.location = 'http://localhost:5000/login';
+      }
+
     const[username,setusername] = useState('')
     const[password,setpassword] = useState('')
     const[login,setlogin]=useState(false)
@@ -31,7 +36,10 @@ function Login(){
     return <div>
         { 
         (login == true) ?
-        <h1>Login Succcessfull</h1>
+        <div>
+            <h1>Login Succcessfull</h1>
+            <button onClick={logout}>Log Out</button>
+        </div>
         :
           <form>
                 <h3>Login</h3>
